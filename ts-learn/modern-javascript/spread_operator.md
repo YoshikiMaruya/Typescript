@@ -21,5 +21,17 @@ const point3D = { ...point3D, z:: 3 };
 const foo = { a: 1, y: 2 };
 const anotherPoint3D = { x: 5, z: 4, ...point2D };
 console.log(anotherPoint3D); // { x: 1, y: 2, z: 4 }
-const yet
+const yetAnotherPoint3D = { ...point2D, x: 5, z: 4 }
+console.log(yetAnotherPoint3D); // {x: 5, y: 2, z: 4}
 ```
+別の一般的なユースケースは、シンプルな浅い拡張です。
+```
+const foo = { a: 1, b: 2, c: 0 };
+const bar = { c: 1, d: 2 };
+// fooとbarを結合する。
+const foobar = { ...foo, ...bar }; //{a: 1, b: 2, c: 1, d: 2}
+```
+
+### まとめ
+スプレッド演算子はJavaScriptでよく使われる`apply`の`this`の引数にわかりづらい`null`を渡さなくてもすむようになるため優れた構文です。
+また、配列を分割したり、他の配列に代入したりする構文を使うことによって簡潔なコードで部分配列に対する処理を行うことが出来ます。
